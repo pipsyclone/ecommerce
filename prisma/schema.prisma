@@ -8,11 +8,12 @@ datasource db {
 }
 
 model Products {
-  productid Int    @id @default(autoincrement())
+  productid Int     @id @default(autoincrement())
   name      String
   price     Int
   image     String
   stock     Int
+  Carts     Carts[]
 
   @@map("products")
 }
@@ -22,12 +23,7 @@ model Carts {
   productid Int
   quantity  Int
 
-  @@map("carts")
-}
+  products Products @relation(fields: [productid], references: [productid])
 
-model Transactions {
-  trid       Int @id @default(autoincrement())
-  productid  Int
-  quantity   Int
-  totalprice Int
+  @@map("carts")
 }

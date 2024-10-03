@@ -12,6 +12,7 @@
 		"seed": "node prisma/seed.js"
 	},
 	"dependencies": {
+		"@arismun/format-rupiah": "^3.0.0",
 		"@fortawesome/fontawesome-free": "^6.6.0",
 		"@prisma/client": "^5.20.0",
 		"axios": "^1.7.7",

@@ -11,8 +11,6 @@ const CartControllers = () => {
 				if (res.data.status === 200) {
 					setData(res.data.data);
 				}
-
-				setProductId(productid);
 				console.log(res.data.data);
 			})
 			.catch((err) => {

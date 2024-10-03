@@ -1,8 +1,6 @@
-"use client";
-import { useParams } from "next/navigation";
-import { useEffect } from "react";
 import CartControllers from "@/controllers/CartControllers";
-import AddToCartCanvas from "./addToCartCanvas";
+import CartCanvas from "./cartCanvas";
+import { useEffect } from "react";
 
 const Topbar = () => {
 	const { data, getCarts } = CartControllers();
@@ -52,28 +50,8 @@ const Topbar = () => {
 						aria-label="Close"
 					></button>
 				</div>
-				<div className="offcanvas-body">
-					<div className="vstack gap-1">
-						{data.map((data, key) => {
-							return (
-								<>
-									<div className="d-flex space-between bg-tertiary">
-										<div className="flex-grow-1">
-											<h5>{data.productid}</h5>
-											<p>Rp. 15.000</p>
-										</div>
-										<div className="w-50">
-											<AddToCartCanvas
-												CartId={data.cartid}
-												Quantity={data.quantity}
-											/>
-										</div>
-									</div>
-									<hr />
-								</>
-							);
-						})}
-					</div>
+				<div className="offcanvas-body p-0 position-relative">
+					<CartCanvas CartItems={data} />
 				</div>
 			</div>
 		</>
