@@ -1,10 +1,7 @@
-import CartControllers from "@/controllers/CartControllers";
-
 const { default: axios } = require("axios");
 const { useState } = require("react");
 
 const AddToCart = ({ productid }) => {
-	const { getCarts } = CartControllers();
 	const [quantity, setQuantity] = useState(1);
 	const submitHandler = async () => {
 		await axios
