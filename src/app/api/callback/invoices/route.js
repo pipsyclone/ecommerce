@@ -28,7 +28,7 @@ export async function POST(request) {
 			await prisma.transactions.update({
 				where: { trid: event.external_id },
 				data: {
-					status: "Invoice anda sudah kadaluarsa!",
+					status: "Invoice Kadaluarsa!",
 				},
 			});
 		} else {

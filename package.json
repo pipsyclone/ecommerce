@@ -17,8 +17,6 @@
 		"@prisma/client": "^5.20.0",
 		"axios": "^1.7.7",
 		"bootstrap": "^5.3.3",
-		"crypto": "^1.0.1",
-		"micro": "^10.0.1",
 		"next": "14.2.13",
 		"prisma": "^5.20.0",
 		"react": "^18",

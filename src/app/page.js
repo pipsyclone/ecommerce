@@ -1,5 +1,6 @@
 "use client";
 import ProductControllers from "@/controllers/productControllers";
+import { FormatRupiah } from "@arismun/format-rupiah";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -15,7 +16,9 @@ export default function Home() {
 				return (
 					<div className="card card-body" key={key}>
 						<h3>{data.name}</h3>
-						<h5>Rp. {data.price}</h5>
+						<h5>
+							<FormatRupiah value={data.price} />
+						</h5>
 
 						<a
 							href={"/product/" + data.productid}
