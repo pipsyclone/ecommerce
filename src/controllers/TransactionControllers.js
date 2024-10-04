@@ -1,16 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
 
-const CartControllers = () => {
+const TransactionControllers = () => {
 	const [data, setData] = useState([]);
 
-	const getCarts = async () => {
+	const getTransactions = async () => {
 		await axios
-			.get("/api/get-carts")
+			.get("/api/get-transactions")
 			.then((res) => {
-				if (res.data.status === 200) {
-					setData(res.data.data);
-				}
+				setData(res.data.data);
+				console.log(res.data);
 			})
 			.catch((err) => {
 				console.log(err.message);
@@ -19,9 +18,8 @@ const CartControllers = () => {
 
 	return {
 		data,
-		setData,
-		getCarts,
+		getTransactions,
 	};
 };
 
-export default CartControllers;
+export default TransactionControllers;

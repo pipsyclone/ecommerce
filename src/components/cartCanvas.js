@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { FormatRupiah } from "@arismun/format-rupiah";
 import AddToCartCanvas from "./addToCartCanvas";
+import axios from "axios";
 
 const CartCanvas = ({ CartItems }) => {
 	const [totalPrice, setTotalPrice] = useState(0);
@@ -26,6 +27,20 @@ const CartCanvas = ({ CartItems }) => {
 	useEffect(() => {
 		calculateTotalPrice(CartItems);
 	}, [CartItems]);
+
+	const checkOutHandler = async () => {
+		await axios
+			.post("/api/checkout", {
+				cartItems: CartItems,
+				totalAmount: totalPrice,
+			})
+			.then((res) => {
+				window.location.href = "/orders";
+			})
+			.catch((err) => {
+				console.log(err.message);
+			});
+	};
 
 	return (
 		<>
@@ -62,7 +77,11 @@ const CartCanvas = ({ CartItems }) => {
 						<FormatRupiah value={totalPrice} />
 					</div>
 					<div className="align-self-center">
-						<button type="button" className="btn btn-primary">
+						<button
+							type="button"
+							className="btn btn-primary"
+							onClick={checkOutHandler}
+						>
 							Checkout
 						</button>
 					</div>

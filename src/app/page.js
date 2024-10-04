@@ -13,7 +13,7 @@ export default function Home() {
 		<div className="container d-flex gap-3">
 			{data.map((data, key) => {
 				return (
-					<div className="card card-body" key={1}>
+					<div className="card card-body" key={key}>
 						<h3>{data.name}</h3>
 						<h5>Rp. {data.price}</h5>
 

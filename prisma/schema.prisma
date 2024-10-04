@@ -8,22 +8,46 @@ datasource db {
 }
 
 model Products {
-  productid Int     @id @default(autoincrement())
-  name      String
-  price     Int
-  image     String
-  stock     Int
-  Carts     Carts[]
+  productid          Int                  @id @default(autoincrement())
+  name               String
+  price              Int
+  image              String
+  stock              Int
+  Carts              Carts[]
+  DetailTransactions DetailTransactions[]
 
   @@map("products")
 }
 
 model Carts {
-  cartid    Int @id @default(autoincrement())
+  cartid    Int      @id @default(autoincrement())
   productid Int
   quantity  Int
-
-  products Products @relation(fields: [productid], references: [productid])
+  products  Products @relation(fields: [productid], references: [productid])
 
   @@map("carts")
+}
+
+model Transactions {
+  trid               String               @id
+  totalprice         Int
+  invoiceid          String?
+  paymentlink        String?
+  orderdate          DateTime             @default(now())
+  expirydate         DateTime
+  status             String               @default("Menunggu Pembayaran")
+  DetailTransactions DetailTransactions[]
+
+  @@map("transactions")
+}
+
+model DetailTransactions {
+  dtrid        Int          @id @default(autoincrement())
+  trid         String
+  productid    Int
+  quantity     Int
+  products     Products     @relation(fields: [productid], references: [productid])
+  transactions Transactions @relation(fields: [trid], references: [trid])
+
+  @@map("detailtransactions")
 }

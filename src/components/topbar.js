@@ -17,16 +17,21 @@ const Topbar = () => {
 						Tokoku
 					</a>
 
-					<ul className="navbar-nav ms-auto">
+					<ul className="navbar-nav">
 						<li className="nav-item">
-							<button
-								type="button"
+							<a href="/orders" className="nav-link">
+								Order List
+							</a>
+						</li>
+						<li className="nav-item">
+							<a
+								href="#"
 								className="nav-link"
 								data-bs-toggle="offcanvas"
 								data-bs-target="#cart"
 							>
 								Keranjang
-							</button>
+							</a>
 						</li>
 					</ul>
 				</div>
