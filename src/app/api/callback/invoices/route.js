@@ -1,12 +1,6 @@
 import { NextResponse } from "next/server";
 import prisma from "@/libs/prisma";
 
-export const config = {
-	api: {
-		bodyParser: false, // Disable bodyParser untuk menangani raw body
-	},
-};
-
 export async function POST(request) {
 	try {
 		// Baca raw body dari request menggunakan arrayBuffer
