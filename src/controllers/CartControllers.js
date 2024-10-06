@@ -12,7 +12,7 @@ const CartControllers = () => {
 					setData(res.data.data);
 				}
 
-				console.log(res.data.data);
+				console.log(res.data);
 			})
 			.catch((err) => {
 				console.log(err.message);
