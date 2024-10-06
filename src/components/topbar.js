@@ -1,6 +1,14 @@
+import CartControllers from "@/controllers/CartControllers";
 import CartCanvas from "./cartCanvas";
+import { useEffect } from "react";
 
-const Topbar = ({ Data }) => {
+const Topbar = () => {
+	const { data, getCarts } = CartControllers();
+
+	useEffect(() => {
+		getCarts();
+	}, []);
+
 	return (
 		<>
 			<nav className="navbar navbar-expand-lg bg-body-tertiary mb-3">
@@ -48,7 +56,7 @@ const Topbar = ({ Data }) => {
 					></button>
 				</div>
 				<div className="offcanvas-body p-0 position-relative">
-					<CartCanvas CartItems={Data} />
+					<CartCanvas CartItems={data} />
 				</div>
 			</div>
 		</>
