@@ -12,15 +12,15 @@ import CartControllers from "@/controllers/CartControllers";
 // };
 
 export default function Layout({ children }) {
-	// const { data, getCarts } = CartControllers();
+	const { data, getCarts } = CartControllers();
 	useEffect(() => {
 		require("bootstrap/dist/js/bootstrap.bundle.min.js");
-		// getCarts();
+		getCarts();
 	}, []);
 	return (
 		<html>
 			<body>
-				<Topbar />
+				<Topbar Data={data} />
 				{children}
 			</body>
 		</html>
