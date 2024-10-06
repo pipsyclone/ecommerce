@@ -35,7 +35,8 @@ const CartCanvas = ({ CartItems }) => {
 				totalAmount: totalPrice,
 			})
 			.then((res) => {
-				window.location.href = "/orders";
+				// window.location.href = "/orders";
+				console.log(res.data);
 			})
 			.catch((err) => {
 				console.log(err.message);
