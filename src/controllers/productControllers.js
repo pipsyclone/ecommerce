@@ -11,6 +11,8 @@ const ProductControllers = () => {
 				if (res.data.status === 200) {
 					setData(res.data.data);
 				}
+
+				console.log(res.data);
 			})
 			.catch((err) => {
 				console.log(err.message);

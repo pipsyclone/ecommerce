@@ -1,3 +1,4 @@
+"use client";
 import CartControllers from "@/controllers/CartControllers";
 import CartCanvas from "./cartCanvas";
 import { useEffect } from "react";

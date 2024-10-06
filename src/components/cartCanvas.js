@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
+import axios from "axios";
 import { FormatRupiah } from "@arismun/format-rupiah";
 import AddToCartCanvas from "./addToCartCanvas";
-import axios from "axios";
 
 const CartCanvas = ({ CartItems }) => {
 	const [totalPrice, setTotalPrice] = useState(0);
