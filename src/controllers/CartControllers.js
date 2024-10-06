@@ -11,6 +11,8 @@ const CartControllers = () => {
 				if (res.data.status === 200) {
 					setData(res.data.data);
 				}
+
+				console.log(res.data.data);
 			})
 			.catch((err) => {
 				console.log(err.message);
